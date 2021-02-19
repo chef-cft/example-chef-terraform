@@ -1,0 +1,68 @@
+application_name = "My Chef Automate"
+
+create_chef_ha     = false
+create_chef_server = true
+
+chef_backend = {
+  count   = 3
+  version = "2.2.0"
+}
+
+chef_frontend = {
+  count   = 3
+  version = "14.0.58"
+}
+
+chef_clients = {
+  count   = 3
+  version = "16.5.77"
+}
+
+effortless_clients = {
+  count             = 3
+  origin            = "myorigin"
+  effortless_audit  = "my-linux-audit"
+  effortless_config = "my-linux-config"
+}
+
+default_tags = {
+  X-Dept        = "My Dept"
+  X-Contact     = "My Name"
+  X-Project     = "Demo"
+  X-Production  = false
+  X-TTL         = 168
+  X-Environment = "Test"
+  X-Application = "Chef Automate"
+}
+
+vpc = {
+  cidr_block = "10.0.0.0/24"
+}
+
+az_subnets = {
+  eu-west-1a = "10.0.0.0/27"
+  eu-west-1b = "10.0.0.32/27"
+  eu-west-1c = "10.0.0.64/27"
+}
+
+ssh_whitelist_cidrs = ["0.0.0.0/0"]
+
+domain = "example.com"
+
+hostnames = {
+  chef_server       = "chef"
+  automate_server   = "automate"
+  chef_client       = "node"
+  effortless_client = "effortless-node"
+  backend           = "chef-be"
+  frontend          = "chef-fe"
+}
+
+instance_keys = {
+  key_name = "ssh-key"
+  key_file = "~/.ssh/ssh-key"
+}
+
+log_bucket = "chef-logs"
+
+validator_key_path = "/my_chef/test/"
